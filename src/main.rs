@@ -8,7 +8,10 @@ fn main() {
 
         let results = cpufreq::search(&data);
 
-        println!("{:?}", results);
+        let formatted_results = cpufreq::format(results);
+
+        println!("{:?}", formatted_results);
+        
         thread::sleep(one_second);
     }
 }
