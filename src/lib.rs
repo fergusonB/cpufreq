@@ -24,5 +24,6 @@ pub fn format(vec:Vec<&str>)->Vec<f32>{
         let result = thread.split(" ").last().unwrap();
         results.push(result.parse::<f32>().unwrap());
     }
+    results.sort_by(|a, b| b.partial_cmp(a).unwrap());
     results
 }
