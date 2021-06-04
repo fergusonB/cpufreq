@@ -18,11 +18,11 @@ pub fn search(data: &String) -> Vec<&str> {
     results
 }
 
-pub fn format(vec:Vec<&str>)->Vec<&str>{
-    let mut results = Vec::new();
+pub fn format(vec:Vec<&str>)->Vec<f32>{
+    let mut results:Vec<f32> = Vec::new();
     for thread in vec{
         let result = thread.split(" ").last().unwrap();
-        results.push(result);
+        results.push(result.parse::<f32>().unwrap());
     }
     results
 }
