@@ -1,5 +1,27 @@
 use core::str;
 use std::fs;
+use std::env;
+use std::time::Duration;
+use std::{thread, time};
+
+
+pub fn get_interval()->Duration{
+    let args: Vec<String> = env::args().collect();
+
+    let mut interval = time::Duration::from_millis(1000);
+
+    match args.len() {
+        2 => {
+            interval = time::Duration::from_millis(args[1].parse().unwrap());
+        }
+        _ => {
+            eprintln!("Error, usage: 'cpufreq 500'. Defaulting to 1000ms refresh.");
+            thread::sleep(interval)
+        }
+    }
+    interval
+}
+
 
 pub fn get_data() -> String {
     let data: String =

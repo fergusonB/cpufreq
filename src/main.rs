@@ -1,21 +1,8 @@
 use cpufreq;
-use std::env;
-use std::{thread, time};
+use std::thread;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-
-    let mut interval = time::Duration::from_millis(1000);
-
-    match args.len() {
-        2 => {
-            interval = time::Duration::from_millis(args[1].parse().unwrap());
-        }
-        _ => {
-            eprintln!("Error, usage: 'cpufreq 500'. Defaulting to 1000ms refresh.");
-            thread::sleep(interval)
-        }
-    }
+    let interval = cpufreq::get_interval();
 
     loop {
         let data = cpufreq::get_data();
