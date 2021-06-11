@@ -25,6 +25,8 @@ Binary available from the releases page on github.
 
 ### Requirements:
 * [Rust](https://rustup.rs/)
+* build-essential `sudo apt install build-essential`
+* If you're running an older linux distro you will probably have to build rather than use the released binary.
 
 ### Commands
 * Clone repo + enter cpufreq directory
